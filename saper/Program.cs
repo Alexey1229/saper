@@ -56,7 +56,9 @@ while (true)
             else continue;
             break;
         case ConsoleKey.Enter:
-            pole[player_y, player_x] = matrix[player_y, player_x].ToString();
+            pole[player_x, player_y] = matrix[player_x, player_y].ToString();
             break;
+        default: 
+            continue; 
     }
 }
