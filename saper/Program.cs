@@ -2,9 +2,16 @@
 int size_x = 5;
 int size_y = 5;
 int[,] matrix = new int[5,5];
+string[,] pole = new string[5,5];
 int player_x = 0;
 int player_y = 0;
-
+for (int i = 0; i < size_x; i++)
+{
+    for (int j = 0; j < size_y; j++)
+    {
+        pole[j, i] = "*";
+    }
+}
 while (true)
 {
     for (int i = 0; i < size_x; i++)
@@ -14,15 +21,16 @@ while (true)
             if (player_x == j && player_y == i)
             {
                 Console.ForegroundColor = ConsoleColor.DarkYellow;
-                Console.Write(matrix[i, j]);
+                Console.Write(pole[i, j]);
                 Console.Write(' ');
                 Console.ResetColor();
-            } else
+            }
+            else
             {
-                Console.Write(matrix[i, j]);
+                Console.Write(pole[i, j]);
                 Console.Write(' ');
             }
-            
+
         }
         Console.WriteLine();
     }
@@ -46,6 +54,9 @@ while (true)
         case ConsoleKey.D:
             if (player_x<size_x-1) player_x++;
             else continue;
+            break;
+        case ConsoleKey.Enter:
+            pole[player_y, player_x] = matrix[player_y, player_x].ToString();
             break;
     }
 }
