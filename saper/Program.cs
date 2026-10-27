@@ -1,33 +1,33 @@
 ﻿
-int size_x = 5;
-int size_y = 5;
-int[,] matrix = new int[5,5];
-string[,] pole = new string[5,5];
+int size_x = int.Parse(Console.ReadLine());
+int size_y = int.Parse(Console.ReadLine());
+int[,] matrix = new int[size_x,size_y];
+string[,] pole = new string[size_x, size_y];
 int player_x = 0;
 int player_y = 0;
-for (int i = 0; i < size_x; i++)
+for (int i = 0; i < size_y; i++)
 {
-    for (int j = 0; j < size_y; j++)
+    for (int j = 0; j < size_x; j++)
     {
         pole[j, i] = "*";
     }
 }
 while (true)
 {
-    for (int i = 0; i < size_x; i++)
+    for (int i = 0; i < size_y; i++)
     {
-        for (int j = 0; j < size_y; j++)
+        for (int j = 0; j < size_x; j++)
         {
             if (player_x == j && player_y == i)
             {
                 Console.ForegroundColor = ConsoleColor.DarkYellow;
-                Console.Write(pole[i, j]);
+                Console.Write(pole[j, i]);
                 Console.Write(' ');
                 Console.ResetColor();
             }
             else
             {
-                Console.Write(pole[i, j]);
+                Console.Write(pole[j, i]);
                 Console.Write(' ');
             }
 
@@ -44,15 +44,15 @@ while (true)
             else continue;
             break;
         case ConsoleKey.A:
-            if (player_x>0) player_x--;
+            if (player_x > 0) player_x--;
             else continue;
             break;
         case ConsoleKey.S:
-            if (player_y<size_y - 1) player_y++;
+            if (player_y < size_y - 1) player_y++;
             else continue;
             break;
         case ConsoleKey.D:
-            if (player_x<size_x-1) player_x++;
+            if (player_x < size_x-1) player_x++;
             else continue;
             break;
         case ConsoleKey.Enter:
